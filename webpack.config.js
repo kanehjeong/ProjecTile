@@ -17,7 +17,8 @@ module.exports = {
       'app.bundle': './client/app.module.js'
    },
    output: {
-      path: './dist',
+      //path: './dist',
+      path: './client', // use this when starting app from client
       filename: 'app.bundle.js'
    }
 };

@@ -21,11 +21,10 @@ app.use(require('node-sass-middleware')({
   sourceMap: true
 }));
 
-//app.use(express.static(path.join(__dirname, '../client')));
 app.use(express.static(path.join(__dirname, '../node_modules/core-js/client')));
 app.use(express.static(path.join(__dirname, '../node_modules/zone.js/dist')));
-app.use(express.static(path.join(__dirname, '../node_modules/systemjs/dist')));
-app.use(express.static(path.join(__dirname, '../dist')));
+app.use(express.static(path.join(__dirname, '../client')));
+//app.use(express.static(path.join(__dirname, '../dist')));
 
 
 app.use('/', index);
