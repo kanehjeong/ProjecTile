@@ -47,6 +47,10 @@ module.exports = {
          test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
          loader: 'file-loader?name=assets/[name].[hash].[ext]'
       }, {
+         test: /\.scss$/,
+         //loaders: ["style-loader", "raw-loader", "sass-loader"]
+         loader: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: 'css-loader?sourceMap!sass-loader' })
+      }, {
          test: /\.css$/,
          exclude: helpers.root('client', 'app'),
          loader: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: 'css-loader?sourceMap' })
