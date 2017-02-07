@@ -28,7 +28,7 @@ module.exports = {
    module: {
       rules: [{
          test: /\.ts$/,
-         loaders: ['awesome-typescript-loader', 'angular2-template-loader']
+         loaders: ['@angularclass/hmr-loader', 'awesome-typescript-loader', 'angular2-template-loader']
       }, {
          test: /\.html$/,
          loader: 'html-loader'

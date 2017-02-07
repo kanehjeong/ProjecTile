@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {AppState} from "./app.service";
 
 var styles = require('../styles.scss');
 
@@ -7,13 +8,14 @@ var styles = require('../styles.scss');
    template: require('./app.component.html')
 })
 
-export class AppComponent { }
+export class AppComponent implements OnInit {
 
-/*
-if (module.hot) {
-   module.hot.accept();
-   module.hot.dispose(function() {
-      clearInterval(timer);
-   });
+   constructor(
+      public appState: AppState
+   ) {}
+
+   public ngOnInit() {
+      console.log('Initial App State', this.appState.state);
+   }
 }
-*/
+
