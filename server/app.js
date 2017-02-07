@@ -4,6 +4,11 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var webpack = require('webpack');
+//var webpackDevMiddleware = require('webpack-dev-middleware');
+//var webpackHotMiddleware = require('webpack-hot-middleware');
+//var webpackConfig = require('../config/webpack.dev');
+//var webpackCompiler = webpack(webpackConfig);
 
 var index = require('./api/index');
 var app = express();
@@ -21,8 +26,33 @@ app.use(require('node-sass-middleware')({
    sourceMap: true
 }));
 
-//app.use(express.static(path.join(__dirname, '../client')));
-app.use(express.static(path.join(__dirname, '../dist')));
+/*app.use(webpackDevMiddleware(webpackCompiler, {
+   publicPath: webpackConfig.output.publicPath,
+   stats: { color: true }
+}));
+
+app.use(webpackHotMiddleware(webpackCompiler, {
+   log: console.log,
+   path: '/__webpack_hmr', heartbeat: 2 * 1000
+}));*/
+
+(function() {
+
+   // Step 1: Create & configure a webpack compiler
+   var webpack = require('webpack');
+   var webpackConfig = require('../config/webpack.dev');
+   var compiler = webpack(webpackConfig);
+
+   // Step 2: Attach the dev middleware to the compiler & the server
+   app.use(require("webpack-dev-middleware")(compiler, {
+      noInfo: true, publicPath: webpackConfig.output.publicPath
+   }));
+
+   // Step 3: Attach the hot middleware to the compiler & the server
+   app.use(require("webpack-hot-middleware")(compiler, {
+      log: console.log, path: '/__webpack_hmr', heartbeat: 10 * 1000
+   }));
+})();
 
 app.use('/', index);
 

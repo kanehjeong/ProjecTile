@@ -9,8 +9,8 @@ import { AppComponent } from './app.component';
 	declarations: [
 		AppComponent
 	],
-	bootstrap: [ 
-		AppComponent 
+	bootstrap: [
+		AppComponent
 	]
 })
 export class AppModule { }

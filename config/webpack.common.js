@@ -9,17 +9,6 @@ module.exports = {
       extensions: ['.ts', '.js']
    },
 
-   entry: {
-      'polyfills': './client/polyfill.ts',
-      'vendor': './client/vendor.ts',
-      'app': './client/main.ts'
-   },
-
-   output: {
-      path: './dist',
-      filename: 'app.js'
-   },
-
    plugins: [
       // Bug in webpack that causes a warning to occur with latest webpack and angular versions.
       // Below causes bug to disappear but should eventually remove when issue is resolved
