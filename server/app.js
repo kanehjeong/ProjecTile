@@ -5,10 +5,6 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var webpack = require('webpack');
-//var webpackDevMiddleware = require('webpack-dev-middleware');
-//var webpackHotMiddleware = require('webpack-hot-middleware');
-//var webpackConfig = require('../config/webpack.dev');
-//var webpackCompiler = webpack(webpackConfig);
 
 var index = require('./api/index');
 var app = express();
@@ -25,16 +21,6 @@ app.use(require('node-sass-middleware')({
    indentedSyntax: true,
    sourceMap: true
 }));
-
-/*app.use(webpackDevMiddleware(webpackCompiler, {
-   publicPath: webpackConfig.output.publicPath,
-   stats: { color: true }
-}));
-
-app.use(webpackHotMiddleware(webpackCompiler, {
-   log: console.log,
-   path: '/__webpack_hmr', heartbeat: 2 * 1000
-}));*/
 
 (function() {
 

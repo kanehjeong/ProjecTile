@@ -38,11 +38,11 @@ module.exports = {
       }, {
          test: /\.scss$/,
          //loaders: ["style-loader", "raw-loader", "sass-loader"]
-         loader: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: 'css-loader?sourceMap!sass-loader' })
+         loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader?sourceMap!sass-loader' })
       }, {
          test: /\.css$/,
          exclude: helpers.root('client', 'app'),
-         loader: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: 'css-loader?sourceMap' })
+         loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader?sourceMap' })
       }, {
          test: /\.css$/,
          include: helpers.root('client', 'app'),
