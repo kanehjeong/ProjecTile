@@ -1,12 +1,12 @@
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+//var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var helpers = require('./helpers');
 var path = require('path');
 
 module.exports = {
    resolve: {
-      extensions: ['.ts', '.js']
+      extensions: ['.ts', '.js', '.scss']
    },
 
    plugins: [
@@ -19,7 +19,6 @@ module.exports = {
          { }
       ),
       new webpack.optimize.UglifyJsPlugin({comments: false}),
-      new webpack.optimize.CommonsChunkPlugin({name: ['app', 'vendor', 'polyfills']}),
       new HtmlWebpackPlugin({
          template: 'client/index.html'
       })
@@ -37,18 +36,9 @@ module.exports = {
          loader: 'file-loader?name=assets/[name].[hash].[ext]'
       }, {
          test: /\.scss$/,
-         //loaders: ["style-loader", "raw-loader", "sass-loader"]
-         loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader?sourceMap!sass-loader' })
-      }, {
-         test: /\.css$/,
-         exclude: helpers.root('client', 'app'),
-         loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader?sourceMap' })
-      }, {
-         test: /\.css$/,
-         include: helpers.root('client', 'app'),
-         loader: 'raw-loader'
+         loader: 'style-loader!css-loader?sourceMap!sass-loader'
       }]
-   },
+   }
 
 };
 

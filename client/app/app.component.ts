@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AppState} from "./app.service";
 
-var styles = require('../styles.scss');
+require('../styles.scss');
 
 @Component({
    selector: 'my-app',
@@ -10,9 +10,7 @@ var styles = require('../styles.scss');
 
 export class AppComponent implements OnInit {
 
-   constructor(
-      public appState: AppState
-   ) {}
+   constructor(public appState: AppState) { }
 
    public ngOnInit() {
       console.log('Initial App State', this.appState.state);
