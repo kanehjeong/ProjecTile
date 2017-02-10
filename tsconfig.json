@@ -16,10 +16,6 @@
    "awesomeTypescriptLoaderOptions": {
       "forkChecker": true,
       "useWebpackText": true
-   },
-   "exclude": [
-      "node_modules",
-      "dist"
-   ]
+   }
 }
 
