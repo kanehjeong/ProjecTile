@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AppState} from "./app.service";
 
-require('../styles.scss');
+//require('../styles.scss');
 
 @Component({
    selector: 'my-app',

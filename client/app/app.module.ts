@@ -2,6 +2,7 @@ import { NgModule, ApplicationRef } from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { createNewHosts, createInputTransfer, removeNgStyles } from "@angularclass/hmr";
 import { AppComponent } from './app.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { AppState, InternalStateType } from './app.service';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 
@@ -21,7 +22,8 @@ type StoreType = {
 		BrowserModule
 	],
 	declarations: [
-		AppComponent
+		AppComponent,
+      DashboardComponent
 	],
 	bootstrap: [
 		AppComponent
@@ -30,7 +32,6 @@ type StoreType = {
       APP_PROVIDERS
    ]
 })
-
 export class AppModule {
 
    constructor(
